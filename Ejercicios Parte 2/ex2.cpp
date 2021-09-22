@@ -18,13 +18,13 @@ void delete_duplicate(list<int> linked){
         for(list<int>::iterator it2 = linked.begin(); it2 != linked.end(); it2++){
             if(*it == *it2){
                 cont++;
-                cout<<cont<<" ";
-                if(cont >= 2){
-                    linked.remove(*it);
-                }
+            }
+
+            if(cont >= 2){
+                linked.remove(*it);
             }
         }
-        cout<<endl;
+        cout<<'\n';
     }
 }
 
@@ -39,6 +39,6 @@ int main(){
     print(linked);
     delete_duplicate(linked);
     cout<<endl;
-    //print(linked);
+    print(linked);
     return 0;
 }
