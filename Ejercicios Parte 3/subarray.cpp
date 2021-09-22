@@ -2,24 +2,32 @@
 
 using namespace std;
 
-int sub_array(int A[] , int size_ , int k){
-    int mod[k];
-}
+int sub_array(vector<int> A, int k){
+    int cont = 0 , sum = 0;
 
-void print(int *A, int size_){
-    for (int i=0; i<size_; i++){
-        cout <<*(A+i)<<" ";
+    unordered_map<int,int> map_;
+    map_[0] = 1;
+
+    for(auto item:A){
+        sum = (sum + item) % k;
+
+        if(sum < 0 ){
+            sum += k;
+        }
+        cont += map_[sum];
+        ++map_[sum];
     }
+
+    return cont;
 }
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int A[] = {4,5,0,-2,-3,1};
+    vector<int> A{4,5,0,-2,-3,1};
     int k=5;
-    int size_ = sizeof(A)/sizeof(A[0]);
 
-
+    cout<<sub_array(A,k);
     return 0;
 }
