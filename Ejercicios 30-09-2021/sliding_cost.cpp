@@ -75,7 +75,7 @@ using namespace std;
 using namespace __gnu_pbds;
 
 typedef long long ll;
-typedef tree< int,
+typedef tree<int,
         null_type,
         less_equal<int>,
         rb_tree_tag,
