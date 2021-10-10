@@ -3,10 +3,6 @@ using namespace std;
 
 typedef long long ll;
 
-void update(char A[], ll size_ ,ll k, char x){
-    A[k-1] = x;
-}
-
 void isPalindrome(char A[], ll size_ , ll a , ll b){
     int same = 0;
     int retro = b-1;
@@ -43,7 +39,7 @@ int main(){
 
         if(querie == 1){
             cin>>k>>x;
-            update(A,size_,k,x);
+            A[k-1] = x;
         }
 
         else if(querie == 2){

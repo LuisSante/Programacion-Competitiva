@@ -7,10 +7,9 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    const int maxN = 2e5;
-    int n, A[maxN] , nl[maxN];
-
+    int n ;
     cin>>n;
+    int A[n] , nl[n];
     for(int i = 0; i < n; i++){
         cin>>A[i];
         nl[i] = i-1;
