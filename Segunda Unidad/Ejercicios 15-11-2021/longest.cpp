@@ -21,8 +21,8 @@ int sub_seq(string cad1, int i, string cad2, int j){
 int main(){
     string cad1 = "abcdefghij";
     string cad2 = "ecdgi";
-    int i = 10;
-    int j = 5;
+    int i = 0;
+    int j = 0;
     cout<<sub_seq(cad1,i,cad2,j); 
     return 0;
 }
