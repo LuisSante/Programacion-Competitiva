@@ -1,40 +1,42 @@
-#include<iostream>
-#include<map>
+//compilacion en C++11
 #include<vector>
-#include<iterator>
-#include<algorithm>
+#include<iostream>
+
+#define oo 999999
 
 using namespace std;
 
-/*
-* input 2 4 5 1 3
-* ouput 2 3 3 1 1 
-*/
+int foo(int x, vector<int>& arr){
+    int sum = 0;
+    while(x > 0){
+        int op = (x & (-x));
+        sum += arr[x];
+        x -= op;
+    }
+    return sum;
+}
 
-void kaka(map<int,int> index, vector<int> deletes){
-    for(size_t i=0; i<index.size(); ++i){
-        auto x = index.find(deletes[i]);
-        index.erase(x);
-        cout<<x->first<<" ";
-
+void solution(int x, int v,vector<int>& arr ){
+    while(x < oo){
+        int op = (x & (-x));
+        arr[x] += v;
+        x += op;
     }
 }
 
 int main(){
+
     int n;
     cin>>n;
-    map<int,int> index;
-    vector<int> deletes;
-    int data;
-    for(int i=0;i<n;i++){
-        cin>>data;
-        deletes.push_back(data);
+    vector<int> arr(oo,0);
+    int x;
+    int ans;
+    for(int i = 1; i <= n; i++){
+        cin>>x;
+        ans = x - foo(x,arr);
+        cout << ans << (i == n ? "\n" : " ");
+        solution(x, 1, arr);
     }
-
-    for(int i=1 ; i<=n ; ++i){
-        index.insert(make_pair(i,i));
-    }
-    kaka(index,deletes);
 
     return 0;
 }
